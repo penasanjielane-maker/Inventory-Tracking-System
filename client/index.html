@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Tracking System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h3>Inventory System</h3>
+        </div>
+        <ul class="nav-links">
+            <li class="active" data-section="dashboard"><i class="fas fa-home"></i> Dashboard</li>
+            <li data-section="products"><i class="fas fa-box"></i> Products</li>
+            <li data-section="categories"><i class="fas fa-tags"></i> Categories</li>
+            <li data-section="suppliers"><i class="fas fa-truck-field"></i> Suppliers</li>
+            <li data-section="customers"><i class="fas fa-users"></i> Customers</li>
+            <li data-section="warehouses"><i class="fas fa-warehouse"></i> Warehouses</li>
+            <li data-section="transactions"><i class="fas fa-exchange-alt"></i> Transactions</li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <header>
+            <h1 id="section-title">Dashboard</h1>
+        </header>
+
+        <section id="dashboard" class="content-section">
+            <div class="stats-container">
+                <div class="stat-card">
+                    <h3>Total Products</h3>
+                    <p id="stat-total-products">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Categories</h3>
+                    <p id="stat-total-categories">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Suppliers</h3>
+                    <p id="stat-total-suppliers">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Customers</h3>
+                    <p id="stat-total-customers">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Warehouses</h3>
+                    <p id="stat-total-warehouses">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Transactions</h3>
+                    <p id="stat-total-transactions">0</p>
+                </div>
+                <div class="stat-card danger">
+                    <h3>Low Stock Alerts</h3>
+                    <p id="stat-low-stock">0</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="products" class="content-section hidden">
+            <div class="action-bar">
+                <button class="btn btn-primary" onclick="app.showAddProductModal()"><i class="fas fa-plus"></i> Add Product</button>
+            </div>
+            <table id="products-table">
+                <thead>
+                    <tr>
+                        <th>SKU</th>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Supplier</th>
+                        <th>Reorder Level</th>
+                        <th>Total Quantity</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+
+        <section id="categories" class="content-section hidden">
+            <div class="action-bar">
+                <button class="btn btn-primary" onclick="app.showAddCategoryModal()"><i class="fas fa-plus"></i> Add Category</button>
+            </div>
+            <table id="categories-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+
+        <section id="suppliers" class="content-section hidden">
+            <div class="action-bar">
+                <button class="btn btn-primary" onclick="app.showAddSupplierModal()"><i class="fas fa-plus"></i> Add Supplier</button>
+            </div>
+            <table id="suppliers-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Contact</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+
+        <section id="customers" class="content-section hidden">
+            <div class="action-bar">
+                <button class="btn btn-primary" onclick="app.showAddCustomerModal()"><i class="fas fa-plus"></i> Add Customer</button>
+            </div>
+            <table id="customers-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+
+        <section id="warehouses" class="content-section hidden">
+            <div class="action-bar">
+                <button class="btn btn-primary" onclick="app.showAddWarehouseModal()"><i class="fas fa-plus"></i> Add Warehouse</button>
+            </div>
+            <table id="warehouses-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Location</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+
+        <section id="transactions" class="content-section hidden">
+            <table id="transactions-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Product</th>
+                        <th>Warehouse</th>
+                        <th>Amount</th>
+                        <th>Type</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+    </main>
+
+    <!-- Modals (Simplified for brevity) -->
+    <div id="modal-container" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modal-title">Add/Edit</h2>
+            <form id="modal-form">
+                <!-- Form content will be dynamically generated -->
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
